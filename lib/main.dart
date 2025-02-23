@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,18 +15,22 @@ class FirstUI extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Advanced UI - LAB 06 "),
-          backgroundColor: Colors.blue,
+          backgroundColor: const Color.fromARGB(255, 95, 2, 2),
           centerTitle: true,
         ),
-        body: Center(
-          child: Text(
-            "Advanced UI & Navigation",
-            style: TextStyle(
-              fontSize: 30,
+        body: Column(
+          children: [
+            CachedNetworkImage(
+              imageUrl:
+                  "https://images.pexels.com/photos/1235706/pexels-photo-1235706.jpeg?cs=srgb&dl=pexels-lood-goosen-508841-1235706.jpg&fm=jpg",
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
-          ),
+          ],
         ),
       ),
     );
+    // ),
+    //);
   }
 }
